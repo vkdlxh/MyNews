@@ -24,7 +24,7 @@ interface NewsService {
     companion object {
         private const val BASE_URL = "http://newsapi.org/"
         // TODO: API 키를 설정해주세요.
-        private const val API_KEY = "API 키"
+        private const val API_KEY = "API KEY"
 
         fun create(): NewsService {
             val headerInterceptor = Interceptor {
