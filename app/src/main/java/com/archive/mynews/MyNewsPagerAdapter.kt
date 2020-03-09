@@ -9,11 +9,11 @@ class MyNewsPagerAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm) {
         return when (position) {
             0-> {
                 // 플래그먼트 생성
-                FragmentOne()
+                NewsPageOne()
             }
-            1-> FragmentTwo()
+            1-> NewsPageTwo()
             else-> {
-                return FragmentThree()
+                return NewsPageThree()
             }
         }
     }
