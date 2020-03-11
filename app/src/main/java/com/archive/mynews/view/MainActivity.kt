@@ -1,9 +1,8 @@
 package com.archive.mynews.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentPagerAdapter
+import androidx.appcompat.app.AppCompatActivity
 import com.archive.mynews.MyNewsPagerAdapter
 import com.archive.mynews.R
 import com.archive.mynews.api.NewsError
@@ -29,9 +28,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
-
-        toolbar.setTitle("Tap Layout")
-        setSupportActionBar(toolbar)
 
         val fragmentAdapter = MyNewsPagerAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
