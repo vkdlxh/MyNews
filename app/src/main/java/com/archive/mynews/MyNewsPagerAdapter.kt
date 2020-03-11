@@ -24,10 +24,10 @@ class MyNewsPagerAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm) {
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position) {
-            0-> "One"
-            1-> "Two"
+            0-> "TopHeading"
+            1-> "Everything"
             else-> {
-                return "Three"
+                return "Source"
             }
         }
     }
