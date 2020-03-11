@@ -2,6 +2,7 @@ package com.archive.mynews
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.archive.mynews.api.NewsError
@@ -33,17 +34,5 @@ class MainActivity : AppCompatActivity() {
         viewPager.adapter = fragmentAdapter
 
         tabLayout.setupWithViewPager(viewPager)
-
-//        val recyclerMainNews = ()
-//        recyclerNewsMain.adapter = recyclerMainNews
-//        recyclerNewsMain.layoutManager = LinearLayoutManager(this)
-
-
-        val mAdapter = RecyclerMainNews()
-        recyclerNewsMain.adapter = mAdapter
-
-        val lm = LinearLayoutManager(this)
-        recyclerNewsMain.layoutManager = lm
-        recyclerNewsMain.setHasFixedSize(true)
     }
 }
