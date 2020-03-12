@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewsPageTwo">
+    tools:context=".SourceFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerNewsMain"
+        android:id="@+id/recycler_source"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
