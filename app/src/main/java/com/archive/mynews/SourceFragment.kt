@@ -8,27 +8,28 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.model.Source
+import com.archive.mynews.SourceAdapter
 
 /**
  * A simple [Fragment] subclass.
  */
 class SourceFragment : Fragment() {
 
-    private val source_DataArray : ArrayList<Source> = ArrayList()
+    private val sourceList : ArrayList<Source> = ArrayList()
     lateinit var recyclerView1 : RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         var rootView = inflater.inflate(R.layout.source, container, false)
-        source_DataArray.add(Source("1","1","1","1","1","1"))
+        sourceList.add(Source("abc-news","ABC News","Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
+            "https://abcnews.go.com","general","en", "us"))
 
         recyclerView1 = rootView.findViewById(R.id.recycler_source)as RecyclerView
         recyclerView1.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView1.adapter = SourceAdapter(requireContext(),source_DataArray)
+        recyclerView1.adapter = SourceAdapter(requireContext(),sourceList)
 
         return rootView
-        //return inflater.inflate(R.layout.source, container, false)
     }
 
 }
