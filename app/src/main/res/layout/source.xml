@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SourceFragment">
+    tools:context=".SourceFragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of News source"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="8dp"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_source"
@@ -12,4 +22,4 @@
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
 
-</RelativeLayout>
+</LinearLayout>

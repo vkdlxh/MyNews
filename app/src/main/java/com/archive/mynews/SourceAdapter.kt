@@ -6,13 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.model.Source
+import kotlinx.android.synthetic.main.item_source.view.*
 
-class SourceAdapter(val context: Context, val sourceList: ArrayList<Source>) : RecyclerView.Adapter<SourceAdapter.mViewH>() {
+class SourceAdapter(val context: Context, private val sourceList: ArrayList<Source>) : RecyclerView.Adapter<SourceAdapter.mViewH>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): mViewH {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_source, parent, false)
-        return mViewH(view)
+        /*  val view = LayoutInflater.from(context).inflate(R.layout.friend_list_item, parent, false)
+            return mViewH(view)*/
 
-        //return mViewH(LayoutInflater.from(context).inflate(R.layout.item_source,parent,false))
+        return mViewH(LayoutInflater.from(context).inflate(R.layout.item_source,parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -21,12 +22,11 @@ class SourceAdapter(val context: Context, val sourceList: ArrayList<Source>) : R
 
     override fun onBindViewHolder(holder: mViewH, position: Int) {
         // 리사이클러뷰가 불려짐
+
     }
 
     class mViewH(view: View) : RecyclerView.ViewHolder(view) {
-//    var recycler_source = view.friend_List_circle_Profile
-//    var friend_Name = view.friend_List_friendName
-//    var friend_Status = view.friend_List_friendStatus
+        val source = view.text_source_content
     }
 
 }
