@@ -4,17 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TopHeadingFragment"
+    tools:context=".SourceFragment"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="What News today in US"
+        android:text="List of News source"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="8dp"/>
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_source"

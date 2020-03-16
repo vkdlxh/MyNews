@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 enum class Category {
     @SerializedName("general")
     GENERAL,
+
     ;
 
     fun toLowerCase(): String {

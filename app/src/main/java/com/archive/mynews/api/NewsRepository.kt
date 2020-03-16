@@ -10,8 +10,8 @@ object NewsRepository {
     private var countryCode: CountryCode = CountryCode.REPUBLIC_OF_KOREA
 
     /**
-     * 헤드라인 뉴스 취
-     * @param category 카테고
+     * 헤드라인 뉴스 취득
+     * @param category 카테고리
      * @param callback 결과 콜백
      */
     fun getTopHeadlines(category: Category = Category.GENERAL,
@@ -41,4 +41,5 @@ object NewsRepository {
     fun setCountryCode(countryCode: CountryCode) {
         this.countryCode = countryCode
     }
+
 }

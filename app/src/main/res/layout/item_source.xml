@@ -2,9 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+<!--    <ImageView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="80dp"-->
+<!--        android:src="@drawable/new_image"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginEnd="4dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent" />-->
 
     <TextView
         android:id="@+id/text_source_media"
@@ -12,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         tools:text="동아일보"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
@@ -23,7 +34,7 @@
         android:layout_height="wrap_content"
         tools:text="리오넬 메시 호날두와 만나"
         android:textSize="16sp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="12dp"
         app:layout_constraintTop_toBottomOf="@+id/text_source_media"
         app:layout_constraintStart_toStartOf="parent" />
 

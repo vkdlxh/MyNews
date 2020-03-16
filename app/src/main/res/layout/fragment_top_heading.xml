@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SourceFragment"
+    tools:context=".TopHeadingFragment"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="List of News source"
+        android:text="What News today in US"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="8dp"/>
 
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_source"
+        android:id="@+id/recycler_top_heading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="never"/>
