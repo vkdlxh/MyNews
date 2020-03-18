@@ -27,7 +27,7 @@ class TopHeadingFragment : Fragment() {
 
         var articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
 
-        NewsRepository.getTopHeadlines(object : Category.GENERAL {
+        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 articleList = response.articles
                 topHeadingRecyclerView = articleView.findViewById(R.id.recycler_top_heading)as RecyclerView

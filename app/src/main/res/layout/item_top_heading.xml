@@ -2,6 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -16,11 +17,22 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/image_source_framework"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/rectangle"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageView
             android:id="@+id/image_top_heading"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/new_image"
-            android:layout_marginStart="16dp"
+            android:src="@drawable/rectangle"
+            android:layout_marginStart="8dp"
+            android:padding="4dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
 
@@ -29,7 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:hint="리오넬 메시 호날두와 만나"
+            tools:text="리오넬 메시 호날두와 만나"
+            android:maxLines="2"
             android:textSize="16sp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="16dp"
@@ -40,7 +53,7 @@
             android:id="@+id/text_top_heading_media"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="동아일보"
+            tools:text="동아일보"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />

@@ -31,7 +31,6 @@ class SourceAdapter(val context: Context, private val sourceList: List<Source>) 
         val country = view.text_source_country
 
         fun bindView(source: Source) {
-            //itemView.text_source_content.text = ""
             sourcemedia.text = source.name
             content.text = source.description
             language.text = source.language
