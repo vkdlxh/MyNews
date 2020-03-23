@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.model.Article
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_everything.view.*
 import kotlinx.android.synthetic.main.item_top_heading.view.*
 
@@ -22,8 +23,8 @@ class EverythingAdapter (val context: Context, private val articleList: List<Art
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bindView(articleList[position])
-    }
 
+    }
 
     class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
         val imageTopHeading = view.image_top_heading

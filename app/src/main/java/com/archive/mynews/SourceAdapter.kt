@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.archive.mynews.model.Category
 import com.archive.mynews.model.Source
 import kotlinx.android.synthetic.main.item_source.view.*
 

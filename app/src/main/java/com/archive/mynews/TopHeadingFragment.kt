@@ -38,10 +38,8 @@ class TopHeadingFragment : Fragment() {
             override fun onFailure(error: NewsError) {
 
             }
-
         })
 
         return articleView
     }
-
 }

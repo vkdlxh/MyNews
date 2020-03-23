@@ -1,30 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingTop="8dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layout_top_heading"
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginTop="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_top_heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/image_source_framework"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="132dp"
             android:src="@drawable/rectangle"
-            android:layout_marginStart="4dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/layout_top_heading_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="@+id/image_source_framework"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/text_top_heading_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:text="2020/03/23"/>
+
+            </LinearLayout>
 
         <ImageView
             android:id="@+id/image_top_heading"
@@ -32,32 +47,53 @@
             android:layout_height="80dp"
             android:src="@drawable/rectangle"
             android:layout_marginStart="8dp"
-            android:padding="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
-
-        <TextView
-            android:id="@+id/text_top_heading_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            tools:text="리오넬 메시 호날두와 만나"
-            android:maxLines="2"
-            android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
+            app:layout_constraintStart_toStartOf="@+id/image_source_framework"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/image_top_heading"/>
-
-        <TextView
-            android:id="@+id/text_top_heading_media"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="동아일보"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_content"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintStart_toEndOf="@+id/image_top_heading"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/image_source_framework">
+
+            <TextView
+                android:id="@+id/text_top_heading_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="리오넬 메시 호날두와 만나"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/text_top_heading_media"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:ellipsize="end"
+                tools:text="www.google.com" />
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

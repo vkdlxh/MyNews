@@ -1,13 +1,17 @@
 package com.archive.mynews
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.model.Article
 import com.archive.mynews.model.Category
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_top_heading.view.*
+import java.util.logging.Logger
 
 class TopHeadingAdapter(val context: Context, private val articleList: List<Article>) : RecyclerView.Adapter<TopHeadingAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -25,25 +29,22 @@ class TopHeadingAdapter(val context: Context, private val articleList: List<Arti
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val date = view.text_top_heading_date
         val imageTopHeading = view.image_top_heading
         val content = view.text_top_heading_content
         val sourcemedia = view.text_top_heading_media
 
         fun bindView(article: Article) {
-            //imageTopHeading.imagesour = article.fragment_source
+            date.text = article.publishedAt.toString()
             content.text = article.description
             sourcemedia.text = article.url
-
-//            if (fragment_source.category == Category.GENERAL){
-//
-//            } else if (fragment_source.category == "culture") {
-//
-//            } else {
-//
-//            }
-
         }
 
+        fun setBitmap(view: ImageView,bitmap:Bitmap?, article: Article){
+            bitmap?.let {
+                Glide.with(view.context).load(article.urlToImage).into(imageTopHeading)
+            }
+        }
     }
 }
 

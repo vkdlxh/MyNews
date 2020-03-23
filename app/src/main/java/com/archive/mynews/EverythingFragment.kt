@@ -18,28 +18,27 @@ import com.archive.mynews.model.Article
  */
 class EverythingFragment : Fragment() {
 
-    private var articleList : List<Article> = ArrayList()
-    lateinit var everythingRecyclerView : RecyclerView
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        var articleView = inflater.inflate(R.layout.fragment_everything, container, false)
-
-        NewsRepository.getKeywordNews("korea", callback = object : Result<NewsResponse> {
-            override fun onSuccess(response: NewsResponse) {
-                articleList = response.articles
-                everythingRecyclerView = articleView.findViewById(R.id.recycler_everything)as RecyclerView
-                everythingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                everythingRecyclerView.adapter = EverythingAdapter(requireContext(),articleList)
-            }
-
-            override fun onFailure(error: NewsError) {
-
-            }
-
-        })
-
-        return articleView
-    }
+//    private var articleList : List<Article> = ArrayList()
+//    lateinit var everythingRecyclerView : RecyclerView
+//
+//    override fun onCreateView(
+//        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+//
+//        var articleView = inflater.inflate(R.layout.fragment_everything, container, false)
+//
+//        NewsRepository.getKeywordNews ("123", callback = object : Result<NewsResponse> {
+//            override fun onSuccess(response: NewsResponse) {
+//                articleList = response.articles
+//                everythingRecyclerView = articleView.findViewById(R.id.recycler_everything) as RecyclerView
+//                everythingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+//                everythingRecyclerView.adapter = EverythingAdapter(requireContext(), articleList)
+//            }
+//
+//            override fun onFailure(error: NewsError) {
+//
+//            }
+//        })
+//
+//        return articleView
+//    }
 }

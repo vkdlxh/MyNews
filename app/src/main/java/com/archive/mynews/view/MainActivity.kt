@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
 
         val fragmentAdapter = MyNewsPagerAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
-
         tabLayout.setupWithViewPager(viewPager)
 
         // TODO: 국가변경 액티비티 화면 이동용 테스트 버튼입니다.
