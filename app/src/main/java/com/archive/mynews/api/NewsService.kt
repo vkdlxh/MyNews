@@ -15,7 +15,7 @@ interface NewsService {
     fun getInternationalHeadlines(@Query("country") country: String,
                                   @Query("category") category: String): Call<NewsResponse>
 
-    @GET("v2/everything")
+    @GET("v2/fragment_everything")
     fun getKeywordNews(@Query("q") keyword: String): Call<NewsResponse>
 
     @GET("v2/sources")

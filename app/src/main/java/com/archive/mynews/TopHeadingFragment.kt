@@ -5,33 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.archive.mynews.api.NewsError
+import com.archive.mynews.api.NewsRepository
+import com.archive.mynews.api.NewsResponse
+import com.archive.mynews.api.Result
 import com.archive.mynews.model.Article
+import com.archive.mynews.model.Category
 
 /**
  * A simple [Fragment] subclass.
  */
 class TopHeadingFragment : Fragment() {
 
-    private val newsList : ArrayList<Article> = ArrayList()
-    lateinit var recyclerMainNewsAdapterOne : TopHeadingAdapter
+    private var articleList : List<Article> = ArrayList()
+    lateinit var topHeadingRecyclerView : RecyclerView
 
     override fun onCreateView(
-//        inflater: LayoutInflater, container: ViewGroup?,
-//        savedInstanceState: Bundle?): View? {
-//
-//        var recyclerMainNewsAdapter = inflater.inflate(R.layout.item_top_heading, container, false)
-//        newsList.add(Article("","","","", "",""))
-//
-//        recyclerMainNewsAdapter = mainNewsItem.findViewById(R.id.image!!)as RecyclerView
-//        recyclerMainNewsAdapter.layoutManager = LinearLayoutManager(requireContext())
-//        recyclerMainNewsAdapter.adapter = RecyclerMainNewsAdapter(requireContext(),newsList)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-//        return mainNewsItem
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.top_heading, container, false)
+        var articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
+
+        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
+            override fun onSuccess(response: NewsResponse) {
+                articleList = response.articles
+                topHeadingRecyclerView = articleView.findViewById(R.id.recycler_top_heading)as RecyclerView
+                topHeadingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+                topHeadingRecyclerView.adapter = TopHeadingAdapter(requireContext(),articleList)
+            }
+
+            override fun onFailure(error: NewsError) {
+
+            }
+        })
+
+        return articleView
     }
-
 }
