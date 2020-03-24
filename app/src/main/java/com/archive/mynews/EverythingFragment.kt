@@ -17,7 +17,7 @@ import com.archive.mynews.model.Article
  * A simple [Fragment] subclass.
  */
 class EverythingFragment : Fragment() {
-
+//
 //    private var articleList : List<Article> = ArrayList()
 //    lateinit var everythingRecyclerView : RecyclerView
 //

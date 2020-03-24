@@ -22,19 +22,20 @@ class EverythingAdapter (val context: Context, private val articleList: List<Art
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindView(articleList[position])
-
+        holder.bindView(articleList[position], context)
     }
 
     class ViewHolder(view: View) :RecyclerView.ViewHolder(view) {
-        val imageTopHeading = view.image_top_heading
+        val date = view.text_everything_date
+        val imageTopHeading = view.image_everything
         val content = view.text_everything_content
         val sourcemedia = view.text_everything_media
 
-        fun bindView(article: Article) {
-            //imageTopHeading.imagesour = article.fragment_source
+        fun bindView(article: Article, context: Context) {
+            date.text = article.publishedAt.toString()
             content.text = article.description
             sourcemedia.text = article.url
+            Glide.with(context).load(article.urlToImage).into(imageTopHeading)
         }
     }
 }

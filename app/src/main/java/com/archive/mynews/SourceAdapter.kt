@@ -34,22 +34,6 @@ class SourceAdapter(val context: Context, private val sourceList: List<Source>) 
             content.text = source.description
             language.text = source.language
             country.text = source.country
-
-//            when (fragment_source.category) {
-//               Category.GENERAL -> {
-//
-//               }
-//
-//            }
-
-//            if (fragment_source.category == Category.GENERAL){
-//
-//            } else if (fragment_source.category == "culture") {
-//
-//            } else {
-//
-//            }
         }
     }
-
 }
