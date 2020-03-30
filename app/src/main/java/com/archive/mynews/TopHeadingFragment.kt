@@ -39,7 +39,6 @@ class TopHeadingFragment : Fragment() {
 
             }
         })
-
         return articleView
     }
 }

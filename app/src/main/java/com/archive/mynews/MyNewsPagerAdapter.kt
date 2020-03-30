@@ -31,5 +31,4 @@ class MyNewsPagerAdapter (fm : FragmentManager) : FragmentPagerAdapter(fm) {
             }
         }
     }
-
 }

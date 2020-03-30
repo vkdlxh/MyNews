@@ -18,6 +18,7 @@ class ChangeCountyActivity : AppCompatActivity() {
         testData.add(Country(CountryCode.REPUBLIC_OF_KOREA, "한국", R.drawable.south_korea))
         testData.add(Country(CountryCode.JAPAN, "日本", R.drawable.japan))
         testData.add(Country(CountryCode.UNITED_STATES, "United States", R.drawable.united_states))
+        testData.add(Country(CountryCode.CHINA, "China", R.drawable.china))
         val selectedCountryCode = PreferenceHelper.countryCode
         val adapter = CountryAdapter(testData, selectedCountryCode)
         grid_view.adapter = adapter
