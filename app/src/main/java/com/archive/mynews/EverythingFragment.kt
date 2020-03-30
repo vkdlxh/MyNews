@@ -5,7 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView.OnEditorActionListener
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -41,14 +42,24 @@ class EverythingFragment : Fragment() {
 
             }
         })
-        return articleView
 
-//        newsSearch.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                performSearch()
-//                return@OnEditorActionListener true
-//            }
-//            false
-//        })
+        if (newsSearch != null) {
+            newsSearch.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
+                when (actionId) {
+                    EditorInfo.IME_ACTION_SEARCH -> {
+                        Toast.makeText(context, "검색성공", Toast.LENGTH_SHORT).show()
+
+                    }
+
+                    else -> {
+                        Toast.makeText(context, "검색실패", Toast.LENGTH_SHORT).show()
+                        return@OnEditorActionListener false
+                    }
+                }
+                true
+            })
+        }
+
+        return articleView
     }
 }
