@@ -38,7 +38,7 @@
                 app:tabMode="fixed"
                 app:tabMaxWidth="0dp"
                 app:tabGravity="fill"
-                app:tabIndicatorColor="#ffffff"
+                app:tabIndicatorColor="#000000"
                 app:tabTextColor="#000000" />
 
     </com.google.android.material.appbar.AppBarLayout>

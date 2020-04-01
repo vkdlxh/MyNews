@@ -1,10 +1,12 @@
 package com.archive.mynews
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -43,11 +45,20 @@ class EverythingFragment : Fragment() {
             }
         })
 
+        return articleView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         if (newsSearch != null) {
             newsSearch.setOnEditorActionListener(TextView.OnEditorActionListener { v, actionId, event ->
                 when (actionId) {
                     EditorInfo.IME_ACTION_SEARCH -> {
                         Toast.makeText(context, "검색성공", Toast.LENGTH_SHORT).show()
+                        val imm: InputMethodManager =
+                            activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                        imm.hideSoftInputFromWindow(getView()!!.windowToken, 0)
 
                     }
 
@@ -60,6 +71,5 @@ class EverythingFragment : Fragment() {
             })
         }
 
-        return articleView
     }
 }
