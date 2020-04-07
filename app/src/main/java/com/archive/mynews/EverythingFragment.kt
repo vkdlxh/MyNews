@@ -2,6 +2,8 @@ package com.archive.mynews
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,7 +61,6 @@ class EverythingFragment : Fragment() {
                         val imm: InputMethodManager =
                             activity!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                         imm.hideSoftInputFromWindow(getView()!!.windowToken, 0)
-
                     }
 
                     else -> {
@@ -71,5 +72,20 @@ class EverythingFragment : Fragment() {
             })
         }
 
+        newsSearch.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(
+                charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+
+            override fun onTextChanged(
+                charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+
+            override fun afterTextChanged(editable: Editable) {
+
+//                val text: String = editSearch.getText().toString()
+//                search(text)
+            }
+        })
     }
 }
