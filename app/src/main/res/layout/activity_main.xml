@@ -25,7 +25,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
-                android:text="Change Country"
+                android:text="Country"
+                android:textSize="8sp"
+                android:backgroundTint="#ffffff"
+                android:textColor="#C0C0C0"
+                android:layout_marginEnd="8dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -38,7 +42,7 @@
                 app:tabMode="fixed"
                 app:tabMaxWidth="0dp"
                 app:tabGravity="fill"
-                app:tabIndicatorColor="#ffffff"
+                app:tabIndicatorColor="#000000"
                 app:tabTextColor="#000000" />
 
     </com.google.android.material.appbar.AppBarLayout>
