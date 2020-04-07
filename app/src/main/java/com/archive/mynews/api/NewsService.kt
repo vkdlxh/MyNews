@@ -13,10 +13,14 @@ interface NewsService {
 
     @GET("v2/top-headlines")
     fun getInternationalHeadlines(@Query("country") country: String,
-                                  @Query("category") category: String): Call<NewsResponse>
+                                  @Query("category") category: String,
+                                  @Query("pageSize") pageSize: Int,
+                                  @Query("page") page: Int): Call<NewsResponse>
 
     @GET("v2/everything")
-    fun getKeywordNews(@Query("q") keyword: String): Call<NewsResponse>
+    fun getKeywordNews(@Query("q") keyword: String,
+                       @Query("pageSize") pageSize: Int,
+                       @Query("page") page: Int): Call<NewsResponse>
 
     @GET("v2/sources")
     fun getNewsProviders(): Call<SourceResponse>

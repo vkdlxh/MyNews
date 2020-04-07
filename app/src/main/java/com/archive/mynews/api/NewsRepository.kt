@@ -12,21 +12,31 @@ object NewsRepository {
     /**
      * 헤드라인 뉴스 취득
      * @param category 카테고리
+     * @param pageSize 페이지당 표시하는 기사 수
+     * @param page 페이지
      * @param callback 결과 콜백
      */
     fun getTopHeadlines(category: Category = Category.GENERAL,
+                        pageSize: Int = 20,
+                        page: Int = 1,
                         callback: Result<NewsResponse>) {
-        apiService.getInternationalHeadlines(countryCode.code, category.toLowerCase())
+        apiService.getInternationalHeadlines(
+            countryCode.code, category.toLowerCase(), pageSize, page)
             .enqueue(CallbackWrapper(callback))
     }
 
     /**
      * 특정 단어 뉴스 취득
      * @param keyword 검색어
+     * @param pageSize 페이지당 표시하는 기사 수
+     * @param page 페이지
      * @param callback 결과 콜백
      */
-    fun getKeywordNews(keyword: String, callback: Result<NewsResponse>) {
-        apiService.getKeywordNews(keyword).enqueue(CallbackWrapper(callback))
+    fun getKeywordNews(keyword: String,
+                       pageSize: Int = 20,
+                       page: Int = 1,
+                       callback: Result<NewsResponse>) {
+        apiService.getKeywordNews(keyword, pageSize, page).enqueue(CallbackWrapper(callback))
     }
 
     /**
