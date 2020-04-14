@@ -1,17 +1,19 @@
-package com.archive.mynews
+package com.archive.mynews.view
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.archive.mynews.R
 import com.archive.mynews.model.Source
 import kotlinx.android.synthetic.main.item_source.view.*
 
 class SourceAdapter(val context: Context, private val sourceList: List<Source>) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).
-            inflate(R.layout.item_source,parent,false))
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.item_source, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {

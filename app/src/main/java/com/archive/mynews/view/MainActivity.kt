@@ -2,8 +2,8 @@ package com.archive.mynews.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.archive.mynews.MyNewsPagerAdapter
 import com.archive.mynews.R
 import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
@@ -11,7 +11,7 @@ import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,8 +36,12 @@ class MainActivity : AppCompatActivity() {
         // TODO: 국가변경 액티비티 화면 이동용 테스트 버튼입니다.
         //  나중에 화면 디자인에 맞춰서 변경해주세요.
         button_change_country.setOnClickListener {
-            val intent = Intent(this, ChangeCountyActivity::class.java)
-            startActivity(intent)
+            ChangeCountryDialogFragment.show(fragmentManager = supportFragmentManager)
         }
+    }
+
+    override fun onClickChange() {
+        Toast.makeText(this, "국가변경 완료", Toast.LENGTH_SHORT).show()
+        // TODO: 국가변경 완료됐으므로 화면 갱
     }
 }
