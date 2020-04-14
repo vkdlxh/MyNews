@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.R
@@ -13,6 +14,7 @@ import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import com.archive.mynews.model.Article
+import kotlinx.android.synthetic.main.fragment_top_heading.*
 
 /**
  * A simple [Fragment] subclass.
@@ -46,8 +48,8 @@ class TopHeadingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        if (!topHeadingRecyclerView.canScrollVertically(1)) {
-//
+//        if (recycler_top_heading.canScrollVertically(-1)) {
+//            Toast.makeText(context, "리스트", Toast.LENGTH_SHORT).show()
 //        }
     }
 }
