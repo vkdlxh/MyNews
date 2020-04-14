@@ -1,4 +1,4 @@
-package com.archive.mynews
+package com.archive.mynews.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.archive.mynews.R
 import com.archive.mynews.api.*
 import com.archive.mynews.model.Source
 
@@ -28,7 +29,7 @@ class SourceFragment : Fragment() {
                 sourceList = response.sources
                 sourceRecyclerView = sourceView.findViewById(R.id.recycler_source)as RecyclerView
                 sourceRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                sourceRecyclerView.adapter = SourceAdapter(requireContext(),sourceList)
+                sourceRecyclerView.adapter = SourceAdapter(requireContext(), sourceList)
             }
 
             override fun onFailure(error: NewsError) {

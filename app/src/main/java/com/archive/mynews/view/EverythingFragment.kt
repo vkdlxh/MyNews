@@ -1,4 +1,4 @@
-package com.archive.mynews
+package com.archive.mynews.view
 
 import android.content.Context
 import android.os.Bundle
@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.archive.mynews.R
 import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
@@ -39,7 +40,8 @@ class EverythingFragment : Fragment() {
                 articleList = response.articles
                 everythingRecyclerView = articleView.findViewById(R.id.recycler_everything) as RecyclerView
                 everythingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                everythingRecyclerView.adapter = EverythingAdapter(requireContext(), articleList)
+                everythingRecyclerView.adapter =
+                    EverythingAdapter(requireContext(), articleList)
             }
 
             override fun onFailure(error: NewsError) {

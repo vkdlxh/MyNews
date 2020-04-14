@@ -1,4 +1,4 @@
-package com.archive.mynews
+package com.archive.mynews.view
 
 import android.content.Context
 import android.content.Intent
@@ -8,16 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.archive.mynews.R
 import com.archive.mynews.model.Article
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_everything.view.*
 import kotlinx.android.synthetic.main.item_everything.view.image_source_framework
-import kotlinx.android.synthetic.main.item_top_heading.view.*
 
 class EverythingAdapter (val context: Context, private val articleList: List<Article>) : RecyclerView.Adapter<EverythingAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).
-            inflate(R.layout.item_everything, parent, false)
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(R.layout.item_everything, parent, false)
         )
     }
 

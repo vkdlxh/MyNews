@@ -7,7 +7,7 @@ import com.archive.mynews.model.CountryCode
 object NewsRepository {
     private val apiService = NewsService.create()
     // TODO: 국가코드 관리
-    private var countryCode: CountryCode = CountryCode.REPUBLIC_OF_KOREA
+    private var countryCode: CountryCode = CountryCode.SOUTH_KOREA
 
     /**
      * 헤드라인 뉴스 취득

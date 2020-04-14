@@ -11,7 +11,7 @@ import com.archive.mynews.model.Country
 import kotlinx.android.synthetic.main.item_county.view.*
 
 class CountryAdapter(
-    private val countryList: ArrayList<Country>,
+    private val countryList: List<Country>,
     private var selectedCountryCode: String
 ) : BaseAdapter() {
 
@@ -27,7 +27,7 @@ class CountryAdapter(
         val country = countryList[position]
         val countryTextView = itemView.text_county
         val countryImageView = itemView.image_country
-        countryTextView.text = country.countryName
+        countryTextView.text = country.countryCode.code
         countryImageView.setImageDrawable(context.resources.getDrawable(country.countryImage))
         itemView.setBackgroundColor(if (country.countryCode.code == selectedCountryCode) {
             Color.LTGRAY
