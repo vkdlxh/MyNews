@@ -15,7 +15,7 @@ enum class CountryCode(val code: String) {
     SINGAPORE("sg"),
     SOUTH_KOREA("kr"),
     SWEDEN("se"),
-    SWITZERLAND("ch"),
+    SWITZERLAND("sw"),
     THAILAND("th"),
     TURKEY("tr"),
     UNITED_KINGDOM("gb"),

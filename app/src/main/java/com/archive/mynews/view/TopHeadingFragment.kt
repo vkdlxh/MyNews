@@ -15,27 +15,33 @@ import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import com.archive.mynews.model.Article
 import kotlinx.android.synthetic.main.fragment_top_heading.*
+import kotlinx.android.synthetic.main.fragment_top_heading.view.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class TopHeadingFragment : Fragment() {
 
-    private var articleList : List<Article> = ArrayList()
     lateinit var topHeadingRecyclerView : RecyclerView
+    private lateinit var adapter : TopHeadingAdapter
+    private var page = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
-        var articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
+        val articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
 
-        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
+        adapter = TopHeadingAdapter(requireContext())
+        topHeadingRecyclerView = articleView.recycler_top_heading as RecyclerView
+        topHeadingRecyclerView.adapter = adapter
+        topHeadingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+
+        NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
-                articleList = response.articles
-                topHeadingRecyclerView = articleView.findViewById(R.id.recycler_top_heading)as RecyclerView
-                topHeadingRecyclerView.layoutManager = LinearLayoutManager(requireContext())
-                topHeadingRecyclerView.adapter =
-                    TopHeadingAdapter(requireContext(), articleList)
+                adapter.addArticleList(response.articles)
+                page += 1
+
             }
 
             override fun onFailure(error: NewsError) {
@@ -48,8 +54,23 @@ class TopHeadingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        if (recycler_top_heading.canScrollVertically(-1)) {
-//            Toast.makeText(context, "리스트", Toast.LENGTH_SHORT).show()
-//        }
+        recycler_top_heading.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (!recycler_top_heading.canScrollVertically(1)) {
+
+                    NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
+                        override fun onSuccess(response: NewsResponse) {
+                            adapter.addArticleList(response.articles)
+                            page += 1
+                        }
+
+                        override fun onFailure(error: NewsError) {
+
+                        }
+                    })
+                }
+            }
+        })
     }
 }

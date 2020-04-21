@@ -12,9 +12,15 @@ import com.archive.mynews.R
 import com.archive.mynews.model.Article
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_top_heading.view.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
-class TopHeadingAdapter(val context: Context, private val articleList: List<Article>) : RecyclerView.Adapter<TopHeadingAdapter.ViewHolder>() {
+class TopHeadingAdapter(
+    val context: Context,
+    // MutableList 확인
+    private val articleList: MutableList<Article> = mutableListOf()
+) : RecyclerView.Adapter<TopHeadingAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(R.layout.item_top_heading, parent, false)
@@ -29,6 +35,11 @@ class TopHeadingAdapter(val context: Context, private val articleList: List<Arti
        holder.bindView(articleList[position], context)
     }
 
+    fun addArticleList(articleList: List<Article>) {
+        this.articleList.addAll(articleList)
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val layout_top_heading = view.image_source_framework
         val date = view.text_top_heading_date
@@ -37,7 +48,13 @@ class TopHeadingAdapter(val context: Context, private val articleList: List<Arti
         val sourcemedia = view.text_top_heading_media
 
         fun bindView(article: Article, context: Context) {
-            date.text = article.publishedAt.toString()
+            val timeFormat = SimpleDateFormat(
+                context.getString(R.string.format_date),
+                Locale.getDefault()
+            )
+            val time = timeFormat.format(article.publishedAt)
+
+            date.text = time
             content.text = article.description
             sourcemedia.text = article.url
             Glide.with(context).load(article.urlToImage).into(imageTopHeading)
