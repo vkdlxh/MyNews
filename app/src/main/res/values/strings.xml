@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyNews</string>
+
+<!--DateFormat-->
+    <string name="format_date">yyyy.MM.dd(E)</string>
+
 </resources>
