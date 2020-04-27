@@ -6,10 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.archive.mynews.R
+import com.archive.mynews.model.Article
 import com.archive.mynews.model.Source
 import kotlinx.android.synthetic.main.item_source.view.*
 
-class SourceAdapter(val context: Context, private val sourceList: List<Source>) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
+class SourceAdapter(
+    val context: Context,
+    private val sourceList: MutableList<Source> = mutableListOf()
+) : RecyclerView.Adapter<SourceAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(R.layout.item_source, parent, false)
@@ -23,6 +27,12 @@ class SourceAdapter(val context: Context, private val sourceList: List<Source>) 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         // 리사이클러뷰가 불러짐
         holder.bindView(sourceList[position])
+    }
+
+
+    fun addSourceList(sourceList: List<Source>) {
+        this.sourceList.addAll(sourceList)
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
