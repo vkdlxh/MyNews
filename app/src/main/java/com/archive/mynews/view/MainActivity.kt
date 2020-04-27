@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        TopHeadingAdapter.ViewHolder(viewPager)
+
         // * 사용 예 (실제로 사용하실 땐 액티비티에 코드가 집중되지 MVP 나눠주세요)
         NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
@@ -42,6 +44,10 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
 
     override fun onClickChange() {
         Toast.makeText(this, "국가변경 완료", Toast.LENGTH_SHORT).show()
-        // TODO: 국가변경 완료됐으므로 화면 갱
+        // TODO: 국가변경 완료됐으므로 화면 갱신
+
+
+
+
     }
 }

@@ -13,8 +13,13 @@ import com.archive.mynews.model.Article
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.item_everything.view.*
 import kotlinx.android.synthetic.main.item_everything.view.image_source_framework
+import java.text.SimpleDateFormat
+import java.util.*
 
-class EverythingAdapter (val context: Context, private val articleList: List<Article>) : RecyclerView.Adapter<EverythingAdapter.ViewHolder>() {
+class EverythingAdapter (
+    val context: Context,
+    private var articleList: MutableList<Article> = mutableListOf()
+) : RecyclerView.Adapter<EverythingAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
             LayoutInflater.from(context).inflate(R.layout.item_everything, parent, false)
@@ -23,6 +28,17 @@ class EverythingAdapter (val context: Context, private val articleList: List<Art
 
     override fun getItemCount(): Int {
         return articleList.size
+    }
+
+    // 리스트 갱신 메소드
+    fun addArticleList(articleList: List<Article>) {
+        this.articleList.addAll(articleList)
+        notifyDataSetChanged()
+    }
+
+    fun replaceArticleList(articleList: List<Article>) {
+        this.articleList = articleList as MutableList<Article>
+        notifyDataSetChanged()
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -37,7 +53,13 @@ class EverythingAdapter (val context: Context, private val articleList: List<Art
         val sourcemedia = view.text_everything_media
 
         fun bindView(article: Article, context: Context) {
-            date.text = article.publishedAt.toString()
+            val timeFormat = SimpleDateFormat(
+                context.getString(R.string.format_date),
+                Locale.getDefault()
+            )
+            val time = timeFormat.format(article.publishedAt)
+
+            date.text = time
             content.text = article.description
             sourcemedia.text = article.url
             Glide.with(context).load(article.urlToImage).into(imageTopHeading)
