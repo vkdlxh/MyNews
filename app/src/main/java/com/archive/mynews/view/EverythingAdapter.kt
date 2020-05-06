@@ -49,6 +49,7 @@ class EverythingAdapter (
         val layout_top_heading = view.image_source_framework
         val date = view.text_everything_date
         val imageTopHeading = view.image_everything
+        val title = view.text_everything_title
         val content = view.text_everything_content
         val sourcemedia = view.text_everything_media
 
@@ -60,6 +61,7 @@ class EverythingAdapter (
             val time = timeFormat.format(article.publishedAt)
 
             date.text = time
+            title.text = article.title
             content.text = article.description
             sourcemedia.text = article.url
             Glide.with(context).load(article.urlToImage).into(imageTopHeading)

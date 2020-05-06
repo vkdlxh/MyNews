@@ -52,24 +52,35 @@
                 app:layout_constraintBottom_toBottomOf="parent" />
 
         <LinearLayout
-                android:id="@+id/layout_content"
-                android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintStart_toEndOf="@+id/image_everything"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/image_source_framework">
+            android:id="@+id/layout_content"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/image_everything"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/image_source_framework">
 
             <TextView
-                    android:id="@+id/text_everything_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    tools:text="리오넬 메시 호날두와 만나"
-                    android:maxLines="4"
-                    android:ellipsize="end"
-                    android:textSize="16sp"/>
+                android:id="@+id/text_everything_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:text="호날두날강두"/>
+
+            <TextView
+                android:id="@+id/text_everything_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:textSize="12sp"
+                tools:text="리오넬 메시 호날두와 만나"/>
 
         </LinearLayout>
 

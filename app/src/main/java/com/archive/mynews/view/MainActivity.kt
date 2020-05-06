@@ -9,6 +9,7 @@ import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
+import com.archive.mynews.model.CountryCode
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
@@ -45,9 +46,6 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
     override fun onClickChange() {
         Toast.makeText(this, "국가변경 완료", Toast.LENGTH_SHORT).show()
         // TODO: 국가변경 완료됐으므로 화면 갱신
-
-
-
-
+        NewsRepository.setCountryCode(countryCode = CountryCode.ARGENTINA)
     }
 }

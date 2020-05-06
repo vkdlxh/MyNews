@@ -44,6 +44,7 @@ class TopHeadingAdapter(
         val layout_top_heading = view.image_source_framework
         val date = view.text_top_heading_date
         val imageTopHeading = view.image_top_heading
+        val title = view.text_top_heading_title
         val content = view.text_top_heading_content
         val sourcemedia = view.text_top_heading_media
 
@@ -55,6 +56,7 @@ class TopHeadingAdapter(
             val time = timeFormat.format(article.publishedAt)
 
             date.text = time
+            title.text = article.title
             content.text = article.description
             sourcemedia.text = article.url
             Glide.with(context).load(article.urlToImage).into(imageTopHeading)
