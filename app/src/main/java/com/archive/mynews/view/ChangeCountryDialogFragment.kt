@@ -36,7 +36,7 @@ class ChangeCountryDialogFragment : DialogFragment() {
         val cancelButton: Button = view.findViewById(R.id.button_cancel)
 
         val selectedCountryCode = PreferenceHelper.countryCode
-        val adapter = CountryAdapter(counrtyList, selectedCountryCode)
+        val adapter = CountryAdapter(countryList, selectedCountryCode)
         gridView.adapter = adapter
         changeButton.setOnClickListener {
             PreferenceHelper.countryCode = adapter.getSelectedCountryCode()
@@ -49,8 +49,8 @@ class ChangeCountryDialogFragment : DialogFragment() {
         return view
     }
 
-    private val counrtyList = listOf (
-        Country(CountryCode.UNITED_ARAB_EMIRATES,  R.drawable.united_arab_emirates),
+    private val countryList = listOf (
+        Country(CountryCode.UNITED_ARAB_EMIRATES, R.drawable.united_arab_emirates),
         Country(CountryCode.ARGENTINA, R.drawable.argentina),
         Country(CountryCode.AUSTRALIA, R.drawable.australia),
         Country(CountryCode.BRAZIL, R.drawable.brazil),
