@@ -16,6 +16,7 @@ import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import com.archive.mynews.model.Article
 import com.archive.mynews.model.CountryCode
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_top_heading.*
 import kotlinx.android.synthetic.main.fragment_top_heading.view.*
 
@@ -41,7 +42,6 @@ class TopHeadingFragment : Fragment() {
         NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 adapter.addArticleList(response.articles)
-                page += 1
             }
 
             override fun onFailure(error: NewsError) {
@@ -72,8 +72,5 @@ class TopHeadingFragment : Fragment() {
                 }
             }
         })
-
-        text_title_country.text = NewsRepository.setCountryCode(countryCode = CountryCode.ARGENTINA).toString()
-
     }
 }
