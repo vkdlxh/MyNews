@@ -42,6 +42,7 @@ class TopHeadingFragment : Fragment() {
         NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 adapter.addArticleList(response.articles)
+                page += 1
             }
 
             override fun onFailure(error: NewsError) {
