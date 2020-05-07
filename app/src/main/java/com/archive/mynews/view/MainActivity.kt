@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
+
             }
 
             override fun onFailure(error: NewsError) {
