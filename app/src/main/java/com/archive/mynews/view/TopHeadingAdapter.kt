@@ -40,6 +40,12 @@ class TopHeadingAdapter(
         notifyDataSetChanged()
     }
 
+    fun replaceArticleList(articleList: List<Article>) {
+        this.articleList.clear()
+        this.articleList.addAll(articleList)
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val layout_top_heading = view.image_source_framework
         val date = view.text_top_heading_date

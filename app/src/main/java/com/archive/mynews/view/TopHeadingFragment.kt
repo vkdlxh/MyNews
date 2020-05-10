@@ -59,7 +59,7 @@ class TopHeadingFragment : Fragment() {
 
                     NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
                         override fun onSuccess(response: NewsResponse) {
-                            adapter.addArticleList(response.articles)
+                            adapter.replaceArticleList(response.articles)
                             page = 1
                         }
 
@@ -72,9 +72,19 @@ class TopHeadingFragment : Fragment() {
         })
     }
 
-    private fun refresh() {
-        val transaction =
-            fragmentManager!!.beginTransaction()
-        transaction.detach(this).attach(this).commit()
+    fun refresh() {
+//        val transaction =
+//            fragmentManager!!.beginTransaction()
+//        transaction.detach(this).attach(this).commit()
+        NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
+            override fun onSuccess(response: NewsResponse) {
+                adapter.replaceArticleList(response.articles)
+                page = 1
+            }
+
+            override fun onFailure(error: NewsError) {
+
+            }
+        })
     }
 }
