@@ -27,6 +27,8 @@ class TopHeadingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
+        arguments
+
         val articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
 
         adapter = TopHeadingAdapter(requireContext())

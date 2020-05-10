@@ -6,23 +6,24 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.archive.mynews.R
 import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
-import com.archive.mynews.model.CountryCode
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
-//    private lateinit var adapter : CountryAdapter
+    //private lateinit var adapter : CountryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //adapter = CountryAdapter()
 
         TopHeadingAdapter.ViewHolder(viewPager)
 
@@ -64,18 +65,21 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         //Toast.makeText(this, "국가변경 완료", Toast.LENGTH_SHORT).show()
         // TODO: 국가변경 완료됐으므로 화면 갱신
         // TODO: TopHeadingFragment한테 갱신하라고 연락하기
-//        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
-//            override fun onSuccess(response: NewsResponse) {
-//                Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
-//                adapter.notifyDataSetChanged()
-//
-//            }
-//
-//            override fun onFailure(error: NewsError) {
-//                // 실패처리
-//            }
-//        })
+        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
+            override fun onSuccess(response: NewsResponse) {
+                Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
+                //adapter.notifyDataSetChanged()
 
-        //NewsRepository.setCountryCode(countryCode = CountryCode.JAPAN)
+                val fragment: Fragment = TopHeadingFragment() // Fragment 생성
+                val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
+                bundle.putString("userId", "1") // key , value
+                fragment.arguments = bundle
+            }
+
+            override fun onFailure(error: NewsError) {
+                // 실패처리
+            }
+        })
+
     }
 }
