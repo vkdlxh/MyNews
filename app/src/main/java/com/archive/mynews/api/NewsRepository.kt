@@ -1,13 +1,12 @@
 package com.archive.mynews.api
 
+import com.archive.mynews.common.PreferenceHelper
 import com.archive.mynews.model.Category
 import com.archive.mynews.model.CountryCode
 
 // TODO: 클래스로 바꿔 서비스를 인자로 받아야 하는가?
 object NewsRepository {
     private val apiService = NewsService.create()
-    // TODO: 국가코드 관리
-    private var countryCode: CountryCode = CountryCode.SOUTH_KOREA
 
     /**
      * 헤드라인 뉴스 취득
@@ -20,8 +19,9 @@ object NewsRepository {
                         pageSize: Int = 20,
                         page: Int = 1,
                         callback: Result<NewsResponse>) {
+        val countyCode = PreferenceHelper.countryCode
         apiService.getInternationalHeadlines(
-            countryCode.code, category.toLowerCase(), pageSize, page)
+            countyCode, category.toLowerCase(), pageSize, page)
             .enqueue(CallbackWrapper(callback))
     }
 
@@ -45,11 +45,6 @@ object NewsRepository {
      */
     fun getNewsProviders(callback: Result<SourceResponse>) {
         apiService.getNewsProviders().enqueue(CallbackWrapper(callback))
-    }
-
-    // TODO: 국가코드 관리
-    fun setCountryCode(countryCode: CountryCode) {
-        this.countryCode = countryCode
     }
 
 }

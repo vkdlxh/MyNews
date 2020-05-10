@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
-    private lateinit var adapter : CountryAdapter
+//    private lateinit var adapter : CountryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,17 +63,18 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
     override fun onClickChange() {
         //Toast.makeText(this, "국가변경 완료", Toast.LENGTH_SHORT).show()
         // TODO: 국가변경 완료됐으므로 화면 갱신
-        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
-            override fun onSuccess(response: NewsResponse) {
-                Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
-                adapter.notifyDataSetChanged()
-
-            }
-
-            override fun onFailure(error: NewsError) {
-                // 실패처리
-            }
-        })
+        // TODO: TopHeadingFragment한테 갱신하라고 연락하기
+//        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
+//            override fun onSuccess(response: NewsResponse) {
+//                Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
+//                adapter.notifyDataSetChanged()
+//
+//            }
+//
+//            override fun onFailure(error: NewsError) {
+//                // 실패처리
+//            }
+//        })
 
         //NewsRepository.setCountryCode(countryCode = CountryCode.JAPAN)
     }
