@@ -12,12 +12,13 @@ import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
+import com.archive.mynews.model.CountryCode
 import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
-    //private lateinit var adapter : CountryAdapter
+    private lateinit var adapter : CountryAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,6 +66,7 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
+                adapter.notifyDataSetChanged()
 
             }
 
@@ -72,5 +74,7 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
                 // 실패처리
             }
         })
+
+        //NewsRepository.setCountryCode(countryCode = CountryCode.JAPAN)
     }
 }
