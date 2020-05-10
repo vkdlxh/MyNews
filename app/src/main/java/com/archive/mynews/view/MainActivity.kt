@@ -1,10 +1,8 @@
 package com.archive.mynews.view
 
-import android.app.PendingIntent.getActivity
 import android.content.Context
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,18 +24,6 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         setContentView(R.layout.activity_main)
 
         TopHeadingAdapter.ViewHolder(viewPager)
-
-        // * 사용 예 (실제로 사용하실 땐 액티비티에 코드가 집중되지 MVP 나눠주세요)
-        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
-            override fun onSuccess(response: NewsResponse) {
-                // 성공처리
-            }
-
-            override fun onFailure(error: NewsError) {
-                // 실패처리
-            }
-
-        })
 
         val fragmentAdapter = MyNewsPagerAdapter(supportFragmentManager)
         viewPager.adapter = fragmentAdapter
@@ -79,7 +65,6 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
-                //adapter.addCountryList()
 
             }
 
