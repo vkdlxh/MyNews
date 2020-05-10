@@ -14,6 +14,8 @@ import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import kotlinx.android.synthetic.main.fragment_top_heading.*
 import kotlinx.android.synthetic.main.fragment_top_heading.view.*
+import okhttp3.internal.notifyAll
+
 
 /**
  * A simple [Fragment] subclass.
@@ -26,8 +28,6 @@ class TopHeadingFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
-        arguments
 
         val articleView = inflater.inflate(R.layout.fragment_top_heading, container, false)
 
@@ -52,8 +52,6 @@ class TopHeadingFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        //text_title_country.text = ""
-
         recycler_top_heading.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
@@ -72,5 +70,11 @@ class TopHeadingFragment : Fragment() {
                 }
             }
         })
+    }
+
+    private fun refresh() {
+        val transaction =
+            fragmentManager!!.beginTransaction()
+        transaction.detach(this).attach(this).commit()
     }
 }

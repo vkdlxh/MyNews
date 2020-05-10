@@ -7,6 +7,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.viewpager.widget.ViewPager
 import com.archive.mynews.R
 import com.archive.mynews.api.NewsError
@@ -14,6 +16,7 @@ import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
@@ -70,10 +73,16 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
                 Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
                 //adapter.notifyDataSetChanged()
 
-                val fragment: Fragment = TopHeadingFragment() // Fragment 생성
-                val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
-                bundle.putString("userId", "1") // key , value
-                fragment.arguments = bundle
+//                val fragment: Fragment = TopHeadingFragment() // Fragment 생성
+//                val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
+//                bundle.putString("userId", "1") // key , value
+//                fragment.arguments = bundle
+
+                val fragment: Fragment = TopHeadingFragment()
+                replaceFragment(fragment)
+
+//                FragmentTransaction ft = getFragmentManager().beginTransaction();
+//                ft.detach(this).attach(this).commit()
             }
 
             override fun onFailure(error: NewsError) {
@@ -81,5 +90,13 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
             }
         })
 
+    }
+
+    fun replaceFragment(fragment: Fragment?) {
+        val fragmentManager: FragmentManager = supportFragmentManager
+        val fragmentTransaction: FragmentTransaction =
+            fragmentManager.beginTransaction()
+        fragmentTransaction.replace(R.id.fragment_top_heading_layout, fragment!!)
+        fragmentTransaction.commit()
     }
 }
