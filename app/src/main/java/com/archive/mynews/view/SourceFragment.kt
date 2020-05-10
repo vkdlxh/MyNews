@@ -19,7 +19,6 @@ class SourceFragment : Fragment() {
 
     lateinit var sourceRecyclerView : RecyclerView
     private lateinit var adapter : SourceAdapter
-    private var page = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

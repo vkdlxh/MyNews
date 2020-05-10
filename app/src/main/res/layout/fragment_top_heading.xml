@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+    android:id="@+id/fragment_top_heading_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,7 +12,7 @@
         android:id="@+id/text_title_country"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="What News today in US"
+        android:text="What News today"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="8dp"/>
@@ -20,6 +21,6 @@
         android:id="@+id/recycler_top_heading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:overScrollMode="never"/>
+        android:scrollbars="vertical"/>
 
 </LinearLayout>
