@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.archive.mynews.R
+import com.archive.mynews.model.Article
 import com.archive.mynews.model.Country
 import kotlinx.android.synthetic.main.item_county.view.*
 
@@ -51,6 +52,11 @@ class CountryAdapter(
 
     override fun getCount(): Int {
         return countryList.size
+    }
+
+    fun addCountryList(countryList: List<Country>) {
+        this.countryList.listIterator()
+        notifyDataSetChanged()
     }
 
     fun getSelectedCountryCode(): String {

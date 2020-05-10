@@ -2,6 +2,7 @@ package com.archive.mynews.view
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -18,9 +18,9 @@ import com.archive.mynews.api.NewsError
 import com.archive.mynews.api.NewsRepository
 import com.archive.mynews.api.NewsResponse
 import com.archive.mynews.api.Result
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_everything.*
 import kotlinx.android.synthetic.main.fragment_everything.view.*
+import java.lang.String
 
 
 /**

@@ -1,4 +1,4 @@
-package com.archive.mynews.common
+package com.archive.mynews.common.view
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -14,11 +14,10 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.archive.mynews.R
-import kotlinx.android.synthetic.main.fragment_everything.view.*
 
 class CustomEditText : AppCompatEditText, TextWatcher, OnTouchListener, OnFocusChangeListener {
     private var clearDrawable: Drawable? = null
-    private var searchDrawable: Drawable? = null
+    //private var searchDrawable: Drawable? = null
     private var onFocusChangeListener: Nothing? = null
     private var onTouchListener: OnTouchListener? = null
 
@@ -56,10 +55,10 @@ class CustomEditText : AppCompatEditText, TextWatcher, OnTouchListener, OnFocusC
         clearDrawable?.let { DrawableCompat.setTintList(it, hintTextColors) }
         clearDrawable!!.setBounds(0, 0, clearDrawable!!.intrinsicWidth, clearDrawable!!.intrinsicHeight)
 
-        val searchIconDrawable: Drawable? = ContextCompat.getDrawable(context, R.drawable.ic_search_black_24dp)
-        searchDrawable = searchIconDrawable?.let { DrawableCompat.wrap(it) }
-        searchDrawable?.let { DrawableCompat.setTintList(it, hintTextColors) }
-        searchDrawable!!.setBounds(searchDrawable!!.intrinsicWidth, 0, 0, searchDrawable!!.intrinsicHeight)
+//        val searchIconDrawable: Drawable? = ContextCompat.getDrawable(context, R.drawable.ic_search_black_24dp)
+//        searchDrawable = searchIconDrawable?.let { DrawableCompat.wrap(it) }
+//        searchDrawable?.let { DrawableCompat.setTintList(it, hintTextColors) }
+//        searchDrawable!!.setBounds(searchDrawable!!.intrinsicWidth, 0, 0, searchDrawable!!.intrinsicHeight)
 
         setClearIconVisible(false)
         super.setOnTouchListener(this)
