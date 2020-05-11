@@ -32,7 +32,7 @@ class TopHeadingAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bindView(articleList[position], context)
+        holder.bindView(articleList[position], context)
     }
 
     fun addArticleList(articleList: List<Article>) {
