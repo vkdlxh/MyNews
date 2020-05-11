@@ -73,9 +73,6 @@ class TopHeadingFragment : Fragment() {
     }
 
     fun refresh() {
-//        val transaction =
-//            fragmentManager!!.beginTransaction()
-//        transaction.detach(this).attach(this).commit()
         NewsRepository.getTopHeadlines(page = page, callback = object : Result<NewsResponse> {
             override fun onSuccess(response: NewsResponse) {
                 adapter.replaceArticleList(response.articles)

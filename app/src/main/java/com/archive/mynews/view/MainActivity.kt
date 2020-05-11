@@ -72,36 +72,5 @@ class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCoun
         if (fragment is TopHeadingFragment) {
             fragment.refresh()
         }
-
-//        NewsRepository.getTopHeadlines(callback = object : Result<NewsResponse> {
-//            override fun onSuccess(response: NewsResponse) {
-//                Toast.makeText(this@MainActivity, "국가변경 완료", Toast.LENGTH_SHORT).show()
-//                //adapter.notifyDataSetChanged()
-//
-////                val fragment: Fragment = TopHeadingFragment() // Fragment 생성
-////                val bundle = Bundle(1) // 파라미터는 전달할 데이터 개수
-////                bundle.putString("userId", "1") // key , value
-////                fragment.arguments = bundle
-//
-//                val fragment: Fragment = TopHeadingFragment()
-//                replaceFragment(fragment)
-//
-////                FragmentTransaction ft = getFragmentManager().beginTransaction();
-////                ft.detach(this).attach(this).commit()
-//            }
-//
-//            override fun onFailure(error: NewsError) {
-//                // 실패처리
-//            }
-//        })
-
-    }
-
-    fun replaceFragment(fragment: Fragment?) {
-        val fragmentManager: FragmentManager = supportFragmentManager
-        val fragmentTransaction: FragmentTransaction =
-            fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_top_heading_layout, fragment!!)
-        fragmentTransaction.commit()
     }
 }
