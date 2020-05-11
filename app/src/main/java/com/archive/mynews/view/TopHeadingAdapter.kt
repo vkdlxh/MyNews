@@ -32,10 +32,16 @@ class TopHeadingAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       holder.bindView(articleList[position], context)
+        holder.bindView(articleList[position], context)
     }
 
     fun addArticleList(articleList: List<Article>) {
+        this.articleList.addAll(articleList)
+        notifyDataSetChanged()
+    }
+
+    fun replaceArticleList(articleList: List<Article>) {
+        this.articleList.clear()
         this.articleList.addAll(articleList)
         notifyDataSetChanged()
     }
