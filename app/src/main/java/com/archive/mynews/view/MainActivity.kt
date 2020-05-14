@@ -12,10 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import androidx.viewpager.widget.ViewPager
 import com.archive.mynews.R
+import com.archive.mynews.common.view.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_everything.*
 
-class MainActivity : AppCompatActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
+class MainActivity : BaseActivity(), ChangeCountryDialogFragment.ChangeCountryListener {
 
     var isKeyboardShowing = false
     var keypadBaseHeight = 0
